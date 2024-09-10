@@ -26,6 +26,36 @@ class pr002 {
 		System.out.println("d =  " + d);
 		dd = (double)b/2;
 		System.out.println("dd =  " + dd);
+		// символный тип данных
+	        System.out.println("примеры использования символьного типа\n");
+        	char ch;
+       		ch = 'D';
+	        System.out.println("Значение ch: " + ch );
+	        ch++;
+	        System.out.println("новое занчение ch:" + ch);
+	        ch = 97;
+	        System.out.println(" занчение ch с кодом 97:" + ch);
+	        I = (int)ch;
+	        System.out.println("Код  ch:" + I);
+	        ch = 'А';
+	        for (int i = 0; i<66; i++) {
+        	        I = (int)ch;
+	                System.out.print("Код символа " + ch + ":" + I + "\n" );
+	                ch++;
+		}
+
+	// логический тип данных 
+	        System.out.println("примеры использования логического  типа\n");
+	        boolean bool;
+	        bool = false;
+	        System.out.println("Значение bool: "+ bool);
+	        bool = true;
+	        System.out.println("Значение bool: "+ bool);
+	        if(bool) System.out.println("Выводим строку, если \"bool\"true");
+	        if(!bool) System.out.println("Выводим строку, если инверсия\"bool\"true");
+	        bool = ch=='я';
+	        System.out.println("Символ ch равен \"я\" ");
+	       }
 
 
 
