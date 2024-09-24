@@ -1,6 +1,7 @@
 class  pr003 {
 	public static void main(String args[]) throws java.io.IOException {
 		char ch;
+		char ch, ignore;
 		System.out.print("нажмите любую клавишу на клавиатуре и нажмите ENTER ");
 		ch = (char) System.in.read();
 		System.out.println("Вы нажали: " + ch);
@@ -120,7 +121,10 @@ class  pr003 {
 
 		for(; i8 < 20;){
                         System.out.println("Иттерация № " + i8);
-                        i8++;
+                for(i8=0;(char)System.in.read()!='S';i++){
+			do{
+                                ignore = (char)System.in.read();
+                        }while(ignore!= '\n' );
                 }
 		
 		//Бесконечный цикл
@@ -147,6 +151,16 @@ class  pr003 {
 			}
 			System.out.println("Два в степени " + i9 + " равно " + result);
 		}
+		//Цикл ду-вайл
+		//
+	
+		do {
+			System.out.print("Нажмите клавишу, затем ENTER: ");
+			ch = (char)System.in.read();
+			do{
+				ignore = (char)System.in.read();
+			}while(ignore!= '\n' );
+		}while(ch!='q');
 	}
 }
 
