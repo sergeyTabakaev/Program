@@ -13,6 +13,12 @@ class auto{
 	double fuel_needed (int kilometers){
 		return (double)(kilometers * 0.01 * fuel_usage);
 	}
+	auto(String name, int seats, int tnk, double fl_u){
+		type = name;
+		pass_num = seats;
+		tank = tnk;
+		fuel_usage = fl_u;
+	}
 }
 class pr004 {
 	public static void main(String args[]){
@@ -20,14 +26,17 @@ class pr004 {
 		//
 		auto lada = new auto();
 		auto lada = new auto() , porsche = new auto();
+		auto lada = new auto("Lada", 4, 40, 5.5) , porsche = new auto("Porsche", 1, 100, 14.0);		
 		double milage;
 		//setting values for objects variables
 		//
+		/*
 		lada.type = "Lada";
 		lada.pass_num = 4;
 		lada.tank = 40;
 		lada.fuel_usage = 5.5;
 		System.out.println("Lada needs " + lada.fuel_needed(10) + " for 10 kilometers");
+		*/ // Not needed because initialisation method has been created 
 		milage = 10;
 		System.out.println("Lada needs " + lada.fuel_needed((int)(milage)) + " for 10 kilometers");
 		
