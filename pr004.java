@@ -3,10 +3,16 @@ class auto{
 	int pass_num; //number of passengers
 	int tank;//fuel tank's volume
 	double fuel_usage;// gas usage (liters per 100 kilometer)
+	private int pass_num; //number of passengers
+	private int tank;//fuel tank's volume
+	private double fuel_usage;// gas usage (liters per 100 kilometer)
 			  //
 	void milage(){
 		System.out.println(type + " will pass out after " + (int)(tank / fuel_usage *100) + " kilometers");	
+		System.out.println(type + " will pass out after " + milage_num() + " kilometers");	
 	}
+
+
 	int milage_num() {
 		return (int)(tank / fuel_usage * 100);
 	}
@@ -19,7 +25,23 @@ class auto{
 		tank = tnk;
 		fuel_usage = fl_u;
 	}
+	int getPass_num(){return pass_num;}
+	int getTank(){return tank;}
+	double getFuel_usage(){return fuel_usage;}
+	void setPass_num(int x){pass_num = x;}
+	void setTank(int x){tank = x;}
+	void setFuel_usage(double x){fuel_usage = x;}
 }
+class Truck extends auto {
+	private int cargo_cap;
+	Truck(String name, int p, int t, double f, int c){
+		super(name, p, t, f);
+		cargo_cap = c;
+	}
+	int getCargo() {return cargo_cap;}
+	void setCargo(int c){cargo_cap = c;}
+}
+
 class pr004 {
 	public static void main(String args[]){
 		//Creating an object
@@ -27,6 +49,7 @@ class pr004 {
 		auto lada = new auto();
 		auto lada = new auto() , porsche = new auto();
 		auto lada = new auto("Lada", 4, 40, 5.5) , porsche = new auto("Porsche", 1, 100, 14.0);		
+		Truck gazel = new Truck("Gazel", 2, 100, 25.5, 3500), ural = new Truck("Ural", 3, 200, 35.1, 5000);
 		double milage;
 		//setting values for objects variables
 		//
@@ -39,13 +62,15 @@ class pr004 {
 		*/ // Not needed because initialisation method has been created 
 		milage = 10;
 		System.out.println("Lada needs " + lada.fuel_needed((int)(milage)) + " for 10 kilometers");
-		
+		/*
 		porsche.type = "Porsche";
 		porsche.pass_num = 1;
 		porsche.tank = 100;
 		porsche.fuel_usage = 14.0;
+		*/
 		System.out.println("Porsche needs " + porsche.fuel_needed(10) + " for 10 kilometers");
-		
+		System.out.println("Gazel needs " + gazel.fuel_needed(10) + " for 10 kilometers");
+		System.out.println("Ural needs " + ural.fuel_needed(10) + " for 10 kilometers");		
 		//lada = porsche;
 		//calculation of milage for lada then fuel tank is full
 		//
@@ -62,5 +87,16 @@ class pr004 {
 		porsche.milage();
 		milage = porsche.milage_num();
 		System.out.println("Called milage_num for porsche: " + milage);
+
+		gazel.milage();
+                milage = gazel.milage_num();
+                System.out.println("Called milage_num for gazel: " + milage);
+		
+		ural.milage();
+                milage = ural.milage_num();
+                System.out.println("Called milage_num for ural: " + milage);
+
+		System.out.println("Gazel can carry " + gazel.getCargo() + " kilos of cargo");
+		System.out.println("Ural can carry " + ural.getCargo() + " kilos of cargo");
 	}
 }
